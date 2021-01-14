@@ -4,7 +4,8 @@
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<p>Farshid(Farsheed) Ashouri's personal thoughts and opinions</p>
+	<p>Well, same as always, old word, this is under construction guys :)</p>
 </main>
 
 <style>
