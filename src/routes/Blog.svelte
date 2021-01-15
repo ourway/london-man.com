@@ -1,19 +1,19 @@
 <script>
-      import { onMount } from 'svelte'
+import BlogLink from "../components/BlogLink.svelte";
 
-      const apiUrl = 'https://jsonplaceholder.typicode.com/posts/'
-      let data = []
-
-      onMount(async () => {
-                  const response = await fetch(apiUrl)
-                  data = await response.json()
-                })
+let title = "Farshid Ashouri's Blog";
 </script>
 
-<h1>Blog</h1>
+<svelte:head>
+  <title>{title.toUpperCase()}</title>
+</svelte:head>
 
-{#each data as item }
-    <div>
-      <h5><a href="/blog/{item.id}">{item.title}</a></h5>
-    </div>
-{/each}
+<h1>{title}</h1>
+<hr />
+<div class="list-group">
+  <BlogLink
+    title="{'welcome to my weblog!'}"
+    desc="A brief greeting and introduction"
+    dt="2021-01-15"
+    slug="welcome" />
+</div>

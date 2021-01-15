@@ -1,42 +1,35 @@
 <script>
-  import router from 'page'
+import router from "page";
 
-  // Include our Routes
-  import Home from './routes/Home.svelte'
-  import Blog from './routes/Blog.svelte'
-  import SingleBlog from './routes/SingleBlog.svelte'
-  import Contact from './routes/Contact.svelte'
-  import About from './routes/About.svelte'
+// Include our Routes
+import Home from "./routes/Home.svelte";
+import Blog from "./routes/Blog.svelte";
+import Contact from "./routes/Contact.svelte";
+import About from "./routes/About.svelte";
+import WelcomePost from "./posts/WelcomePost.svelte";
+import NavBar from "./components/NavBar.svelte";
+import Footer from "./components/Footer.svelte";
+export let name = "app";
 
-  // Variables
-  let page
-  let params
+// Variables
+let page;
+let params;
 
-  // Set up the pages to watch for
-  router('/', () => (page = Home))
-  router('/blog', () => (page = Blog))
-  router('/about', () => (page = About))
-  router('/contact', () => (page = Contact))
-  router(
-    '/blog/:id',
-    (ctx, next) => {
-      params = ctx.params
-      next()
-    },
-    () => (page = SingleBlog)
-  )
+// Set up the pages to watch for
+router("/", () => (page = Blog));
+router("/about", () => (page = About));
+router("/contact", () => (page = Contact));
+router("/blog/welcome", () => (page = WelcomePost));
 
-  // Set up the router to start and actively watch for changes
-  router.start()
+// Set up the router to start and actively watch for changes
+router.start();
 </script>
 
-<nav>
-  <a href="/">Home</a>
-  <a href="/blog">Blog</a>
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
-</nav>
+<NavBar />
+<hr />
 
 <main>
-  <svelte:component this="{page}" params="{params}" />
+  <svelte:component this="{page}" />
 </main>
+
+<Footer />
