@@ -19,7 +19,7 @@ blog.update((x) => {
   boring stuff.
 
   <Image
-    filename="mkfCDRd.jpg"
+    src="/images/mkfCDRd.jpg"
     alt="Farshid (Farsheed) Ashouri Image in black shirt" />
 
   I hope this will be a start for new creativity in my life.

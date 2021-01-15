@@ -39,6 +39,13 @@ body {
   }
 pre.mono {
   font-family: "IBM Plex Mono";
+  padding: 1em;
+}
+pre.mono code {
+  font-family: "IBM Plex Mono";
+}
+pre.mono.grey {
+    background-color: #f2f2f2;
 }
 
 a {

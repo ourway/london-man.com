@@ -12,6 +12,7 @@ export let name = "app";
 // posts
 import WelcomePost from "./posts/WelcomePost.svelte";
 import UnstableTrump from "./posts/UnstableTrump.svelte";
+import KiriAPI from "./posts/Kiri-API.svelte";
 
 // Variables
 let page;
@@ -23,6 +24,7 @@ router("/about", () => (page = About));
 router("/contact", () => (page = Contact));
 router("/blog/welcome", () => (page = WelcomePost));
 router("/blog/unstable-trump", () => (page = UnstableTrump));
+router("/blog/kiri.ai-api", () => (page = KiriAPI));
 
 // Set up the router to start and actively watch for changes
 router.start();

@@ -6,10 +6,10 @@
 </style>
 
 <script>
-export let filename;
+export let src;
 export let alt;
 </script>
 
 <div class="far-image">
-  <img class="img-thumbnail" alt="{alt}" src="/images/{filename}" width="50%" />
+  <img class="img-thumbnail" alt="{alt}" src="{src}" width="auto" />
 </div>
