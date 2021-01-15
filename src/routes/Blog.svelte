@@ -10,7 +10,7 @@ let title = "Farshid Ashouri's Blog";
 
 <h1>{title}</h1>
 <br />
-<div class="list-group">
+<div class="list-group list-group-flush">
   <BlogLink
     title="Trump reported to be unstable in last days"
     desc="During last days of his disastrous presidency, Trump gets more and more radical and unstable"
