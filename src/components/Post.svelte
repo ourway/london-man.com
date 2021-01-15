@@ -6,40 +6,52 @@ h1.title {
   font-weight: bold;
   text-transform: uppercase;
 }
-strong.dt {
+span.dt {
   color: grey;
-}
-article {
-  font-size: 1.4375rem;
 }
 </style>
 
 <script>
-import { blog_dt, blog_title } from "../stores.js";
+import { blog, current_link } from "../stores.js";
 import { onMount } from "svelte";
+import SvelteSeo from "svelte-seo";
 
-let dt;
-let title;
+let meta;
 
-onMount(() => {
-  blog_dt.subscribe((value) => {
-    dt = value;
-  });
-  blog_title.subscribe((value) => {
-    title = value;
-  });
+blog.subscribe((value) => {
+  meta = value;
+});
+current_link.update((x) => {
+  return "/blog";
 });
 </script>
 
 <svelte:head>
-  <title>{title}</title>
+  <title>{meta.title}</title>
 </svelte:head>
-<div class="container">
-  <div class="d-flex w-100 justify-content-between header">
-    <h1 class="mb-1 title">{title}</h1>
-    <strong class="dt">{dt}</strong>
-  </div>
-  <article>
-    <slot />
-  </article>
+
+<div class="d-flex w-100 justify-content-between header">
+  <h1 class="mb-1 title">
+    <svg class="svg-icon" viewBox="0 0 20 20" fill="grey">
+      <path
+        fill="grey"
+        d="M14.467,1.771H5.533c-0.258,0-0.47,0.211-0.47,0.47v15.516c0,0.414,0.504,0.634,0.802,0.331L10,13.955l4.136,4.133c0.241,0.241,0.802,0.169,0.802-0.331V2.241C14.938,1.982,14.726,1.771,14.467,1.771 M13.997,16.621l-3.665-3.662c-0.186-0.186-0.479-0.186-0.664,0l-3.666,3.662V2.711h7.994V16.621z"
+        ></path>
+    </svg>
+    {meta.title}
+  </h1>
+
+  <span class="dt">
+    <svg class="svg-icon" viewBox="0 0 20 20">
+      <path
+        fill="none"
+        d="M11.088,2.542c0.063-0.146,0.103-0.306,0.103-0.476c0-0.657-0.534-1.19-1.19-1.19c-0.657,0-1.19,0.533-1.19,1.19c0,0.17,0.038,0.33,0.102,0.476c-4.085,0.535-7.243,4.021-7.243,8.252c0,4.601,3.73,8.332,8.332,8.332c4.601,0,8.331-3.73,8.331-8.332C18.331,6.562,15.173,3.076,11.088,2.542z M10,1.669c0.219,0,0.396,0.177,0.396,0.396S10.219,2.462,10,2.462c-0.22,0-0.397-0.177-0.397-0.396S9.78,1.669,10,1.669z M10,18.332c-4.163,0-7.538-3.375-7.538-7.539c0-4.163,3.375-7.538,7.538-7.538c4.162,0,7.538,3.375,7.538,7.538C17.538,14.957,14.162,18.332,10,18.332z M10.386,9.26c0.002-0.018,0.011-0.034,0.011-0.053V5.24c0-0.219-0.177-0.396-0.396-0.396c-0.22,0-0.397,0.177-0.397,0.396v3.967c0,0.019,0.008,0.035,0.011,0.053c-0.689,0.173-1.201,0.792-1.201,1.534c0,0.324,0.098,0.625,0.264,0.875c-0.079,0.014-0.155,0.043-0.216,0.104l-2.244,2.244c-0.155,0.154-0.155,0.406,0,0.561s0.406,0.154,0.561,0l2.244-2.242c0.061-0.062,0.091-0.139,0.104-0.217c0.251,0.166,0.551,0.264,0.875,0.264c0.876,0,1.587-0.711,1.587-1.587C11.587,10.052,11.075,9.433,10.386,9.26z M10,11.586c-0.438,0-0.793-0.354-0.793-0.792c0-0.438,0.355-0.792,0.793-0.792c0.438,0,0.793,0.355,0.793,0.792C10.793,11.232,10.438,11.586,10,11.586z"
+        ></path>
+    </svg>
+    {meta.dt}
+  </span>
 </div>
+<article>
+  <slot />
+</article>
+<SvelteSeo title="{meta.title}" description="{meta.desc}" />

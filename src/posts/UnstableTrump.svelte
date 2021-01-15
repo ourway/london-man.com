@@ -10,16 +10,17 @@ p.half {
 
 <script>
 import Post from "../components/Post.svelte";
-import { blog_dt, blog_title } from "../stores.js";
+import { blog } from "../stores.js";
 
-let dt = "2021-01-15";
-let title = "Trump is very unstable after second impeachment";
+let meta = {
+  dt: "2021-01-15",
+  title: "Trump is very unstable after second impeachment",
+  desc:
+    "Watch to a CNN report about Donald Trump's mental status after second impeachment",
+};
 
-blog_dt.update((x) => {
-  return dt;
-});
-blog_title.update((x) => {
-  return title;
+blog.update((x) => {
+  return meta;
 });
 </script>
 
@@ -37,7 +38,7 @@ blog_title.update((x) => {
         <iframe
           width="560"
           height="315"
-          title="{title}"
+          title="{meta.title}"
           align="center"
           src="https://www.youtube.com/embed/gPTSZ6z_6BM"
           frameborder="0"

@@ -1,6 +1,5 @@
 <script>
 import BlogLink from "../components/BlogLink.svelte";
-import { blog_dt, blog_title } from "../stores.js";
 
 let title = "Farshid Ashouri's Blog";
 </script>

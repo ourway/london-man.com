@@ -1,13 +1,16 @@
 <script>
 import Image from "../components/Image.svelte";
 import Post from "../components/Post.svelte";
-import { blog_dt, blog_title } from "../stores.js";
+import { blog } from "../stores.js";
 
-blog_dt.update((x) => {
-  return "2021-01-15";
-});
-blog_title.update((x) => {
-  return "Welcome to my blog!";
+let meta = {
+  dt: "2021-01-15",
+  title: "Welcome to my blog!",
+  desc: "Welcome to Farshid Ashouri's Personal Blog!",
+};
+
+blog.update((x) => {
+  return meta;
 });
 </script>
 

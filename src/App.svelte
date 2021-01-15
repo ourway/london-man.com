@@ -28,11 +28,13 @@ router("/blog/unstable-trump", () => (page = UnstableTrump));
 router.start();
 </script>
 
-<NavBar />
-<br />
+<div class="container">
+  <NavBar />
+  <br />
 
-<main>
-  <svelte:component this="{page}" />
-</main>
+  <main>
+    <svelte:component this="{page}" />
+  </main>
 
-<Footer />
+  <Footer />
+</div>

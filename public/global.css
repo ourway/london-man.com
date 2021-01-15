@@ -23,11 +23,18 @@ body {
 	backface-visibility: hidden;
 }
 
+pre.mono {
+    	font-family: 'IBM Plex Mono';
+}
+
 a {
 	color: rgb(0,100,200);
 	text-decoration: none;
 }
 
+article,p {
+  font-size: 1.4375rem;
+}
 p {
 text-align: justify;
 }
@@ -75,4 +82,21 @@ button:not(:disabled):active {
 
 button:focus {
 	border-color: #666;
+}
+
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #515151;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
 }
