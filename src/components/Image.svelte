@@ -7,12 +7,13 @@
 
 <script>
 export let filename;
+export let alt;
 </script>
 
 <div class="far-image">
   <img
     class="img-thumbnail"
-    alt="Responsive image"
+    alt="{alt}"
     src="/images/{filename}"
     width="50%" />
 </div>
